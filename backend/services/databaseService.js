@@ -20,12 +20,17 @@ const databaseService = () => {
     });
   };
 
+  const getAllMetrics = () => {
+    return knex(table).select();
+  };
+
   const getMetricById = (id) => {
     return knex(table).where({ id: id }).first();
   };
 
   return {
     createMetric,
+    getAllMetrics,
     getMetricById,
   };
 };

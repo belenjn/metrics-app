@@ -3,8 +3,14 @@ module.exports = function (app, databaseService) {
     res.json({ message: "All ok" });
   });
 
-  app.get("/metrics", (req, res) => {
-    res.json({ message: "Reading metrics" });
+  app.get("/metrics", async (req, res) => {
+    try {
+      const metrics = await databaseService.getAllMetrics();
+      res.json(metrics);
+    } catch (error) {
+      res.status(500).json({ error: "Error reading metrics" });
+      console.error("Error reading metrics", error);
+    }
   });
 
   app.get("/metrics/:id", async (req, res) => {
