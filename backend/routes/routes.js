@@ -9,8 +9,6 @@ module.exports = function (app, databaseService) {
 
   app.get("/metrics/:id", async (req, res) => {
     const metricId = req.params.id;
-    console.log(metricId);
-
     try {
       const metric = await databaseService.getMetricById(metricId);
       if (metric) {
@@ -25,6 +23,7 @@ module.exports = function (app, databaseService) {
 
   app.post("/metrics", async (req, res) => {
     const newMetric = req.body;
+    console.log(newMetric);
     try {
       await databaseService.createMetric(newMetric);
       res.json({ message: "New metric created" });
