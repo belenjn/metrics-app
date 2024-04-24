@@ -1,6 +1,5 @@
 .metrics-container {
     display: flex;
-    border: 1px solid red;
     background-color: var(--secondary-color);
     color: var(--text-color);
     height: 100vh;
