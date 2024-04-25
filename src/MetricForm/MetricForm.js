@@ -4,8 +4,9 @@ import publishMetric from "../utils/publishMetric";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-
+import "animate.css";
 import "./MetricForm.css";
+import { scrollToHeight } from "../utils/scrollToHeight";
 
 const MetricForm = () => {
   const [name, setName] = useState("");
@@ -66,6 +67,15 @@ const MetricForm = () => {
           Publish metric
         </button>
       </form>
+      <button
+        className="animate__animated animate__fadeInDown message-container"
+        onClick={() => scrollToHeight(0.9)}
+      >
+        <p>
+          Click to see metrics on the timeline
+          <p>&#8595;</p>
+        </p>
+      </button>
     </div>
   );
 };
