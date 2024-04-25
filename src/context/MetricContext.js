@@ -19,8 +19,11 @@ const MetricProvider = ({ children }) => {
 
   useEffect(() => {
     fetchMetrics();
-  }, []);
 
+    const intervalId = setInterval(fetchMetrics, 60000);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <MetricContext.Provider value={{ metrics, fetchMetrics }}>
       {children}
