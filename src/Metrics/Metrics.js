@@ -10,11 +10,6 @@ export const Metrics = () => {
   const chartRefHour = useRef(null);
   const chartRefDay = useRef(null);
 
-  useEffect(() => {
-    console.log("updating metrics");
-    console.log(metrics);
-  }, [metrics]);
-
   // Función para crear o actualizar un gráfico de línea utilizando D3.js
   const updateLineChart = (data, xKey, yKey, ref) => {
     // Dimensiones del gráfico
