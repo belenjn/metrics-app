@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { MetricContext } from "../context/MetricContext";
 import { strings } from "../utils/strings";
+
 import "./Metrics.css";
 
 export const Metrics = () => {
@@ -11,13 +12,13 @@ export const Metrics = () => {
   const chartRefHour = useRef(null);
   const chartRefDay = useRef(null);
 
-  // Función para crear o actualizar un gráfico de línea utilizando D3.js
+  // Function to create or update a line chart using D3.js
   const updateLineChart = (data, xKey, yKey, ref) => {
-    // Dimensiones del gráfico
+    // Chart dimensions
     const width = 500;
     const height = 300;
 
-    // Escalas
+    // Scales
     const xScale = d3
       .scalePoint()
       .domain(data.map((d) => d[xKey]))
@@ -29,7 +30,7 @@ export const Metrics = () => {
       .domain([0, d3.max(data, (d) => d[yKey])])
       .range([height, 0]);
 
-    // Selecciona el SVG existente o crea uno nuevo si no hay
+    // Select existing SVG or create a new one if there isn't any
     let svg = d3.select(ref.current).select("svg");
     if (svg.empty()) {
       svg = d3
@@ -39,10 +40,10 @@ export const Metrics = () => {
         .attr("height", height);
     }
 
-    // Limpiar elementos anteriores
+    // Clean previous elements
     svg.selectAll("*").remove();
 
-    // Ejes
+    // Axes
     svg
       .append("g")
       .attr("transform", `translate(0, ${height})`)
@@ -50,13 +51,13 @@ export const Metrics = () => {
 
     svg.append("g").call(d3.axisLeft(yScale));
 
-    // Línea
+    // Line
     const line = d3
       .line()
       .x((d) => xScale(d[xKey]))
       .y((d) => yScale(d[yKey]));
 
-    // Añadir o actualizar la línea
+    // Add or update the line
     svg
       .append("path")
       .datum(data)
@@ -66,9 +67,9 @@ export const Metrics = () => {
       .attr("d", line);
   };
 
-  // Procesamiento de datos
+  // Data processing
   useEffect(() => {
-    // Agrupar datos por minuto
+    // Group data by minute
     const dataByMinute = [];
     const dataByMinuteMap = new Map();
 
@@ -86,7 +87,7 @@ export const Metrics = () => {
       dataByMinute.push({ time: minute, value: count });
     });
 
-    // Agrupar datos por hora
+    // Group data by hour
     const dataByHour = [];
     const dataByHourMap = new Map();
 
@@ -104,7 +105,7 @@ export const Metrics = () => {
       dataByHour.push({ time: hour, value: count });
     });
 
-    // Agrupar datos por día
+    // Group data by day
     const dataByDay = [];
     const dataByDayMap = new Map();
 
@@ -123,7 +124,7 @@ export const Metrics = () => {
       dataByDay.push({ date: day, value: count });
     });
 
-    // Actualizar gráficos de línea con los datos procesados
+    // Update line charts with processed data
     updateLineChart(dataByMinute, "time", "value", chartRefMinute);
     updateLineChart(dataByHour, "time", "value", chartRefHour);
     updateLineChart(dataByDay, "date", "value", chartRefDay);

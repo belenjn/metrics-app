@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import moment from "moment";
 import publishMetric from "../utils/publishMetric";
 import { ToastContainer, toast } from "react-toastify";
+import { scrollToHeight } from "../utils/scrollToHeight";
+import { strings } from "../utils/strings";
 
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css";
 import "./MetricForm.css";
-import { scrollToHeight } from "../utils/scrollToHeight";
-import { strings } from "../utils/strings";
 
 const MetricForm = () => {
   const [name, setName] = useState("");
