@@ -11,6 +11,7 @@
 
 .metrics-container h1 {
     color: var(--primary-color);
+    text-align: center;
     font-size: 50px;
     font-weight: 400;
 }
