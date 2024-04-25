@@ -1,6 +1,7 @@
 .form-container {
   background-color: var(--background-color);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 100vh;
 }
@@ -87,3 +88,26 @@ input[type=number] {
     background: var(--primary-color);
   }
 
+.message-container {
+  align-items: center;
+  background-color: var(--background-color);
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+  height: 100px;
+}
+
+.message-container p {
+  transition: transform 0.3s ease-in-out;
+}
+.message-container p:hover {
+  transform: scale(1.08);
+}
