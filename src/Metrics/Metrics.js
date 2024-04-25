@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { MetricContext } from "../context/MetricContext";
+import { strings } from "../utils/strings";
 import "./Metrics.css";
 
 export const Metrics = () => {
@@ -130,18 +131,18 @@ export const Metrics = () => {
 
   return (
     <div className="metrics-container">
-      <h1>Request metrics</h1>
+      <h1>{strings.metricsPage.title}</h1>
       <div className="charts-container">
         <div className="chart-container">
-          <h3>Requests per minute</h3>
+          <h3>{strings.metricsPage.minuteTitle}</h3>
           <div ref={chartRefMinute} className="chart"></div>
         </div>
         <div className="chart-container">
-          <h3>Requests per hour</h3>
+          <h3>{strings.metricsPage.hourTitle}</h3>
           <div ref={chartRefHour} className="chart"></div>
         </div>
         <div className="chart-container">
-          <h3>Requests per day</h3>
+          <h3>{strings.metricsPage.dayTitle}</h3>
           <div ref={chartRefDay} className="chart"></div>
         </div>
       </div>

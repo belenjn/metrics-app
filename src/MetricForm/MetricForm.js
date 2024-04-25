@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "animate.css";
 import "./MetricForm.css";
 import { scrollToHeight } from "../utils/scrollToHeight";
+import { strings } from "../utils/strings";
 
 const MetricForm = () => {
   const [name, setName] = useState("");
@@ -34,11 +35,11 @@ const MetricForm = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form">
-        <h2 className="form-title">Form to enter your values:</h2>
+        <h2 className="form-title">{strings.formPage.title}</h2>
 
         <div className="label-container">
           <div className="label-container--child">
-            <label className="label">Name:</label>
+            <label className="label">{strings.formPage.name}</label>
             <input
               type="text"
               value={name}
@@ -50,7 +51,7 @@ const MetricForm = () => {
 
           <br />
           <div className="label-container--child">
-            <label className="label">Value:</label>
+            <label className="label">{strings.formPage.value}</label>
             <input
               type="number"
               value={value}
@@ -64,7 +65,7 @@ const MetricForm = () => {
         <br />
         <ToastContainer theme="dark" />
         <button type="submit" className="submit-button">
-          Publish metric
+          {strings.formPage.submitButton}
         </button>
       </form>
       <button
@@ -72,7 +73,7 @@ const MetricForm = () => {
         onClick={() => scrollToHeight(0.9)}
       >
         <p>
-          Click to see metrics on the timeline
+          {strings.formPage.metricsButton}
           <p>&#8595;</p>
         </p>
       </button>
