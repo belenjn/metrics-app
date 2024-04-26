@@ -77,6 +77,10 @@ The application should now be running on `http://localhost:3000`.
 
 The application features an intuitive user interface for managing and visualizing metrics. Here is a screenshot of the main dashboard:
 
-![Form](../Captura%20de%20pantalla%202024-04-26%20a%20las%2016.07.53.png)
+## Form
+<img width="1439" alt="Captura de pantalla 2024-04-26 a las 16 08 02" src="https://github.com/belenjn/metrics-app/assets/75947904/8c137074-07bf-468a-8903-6718ad8b32a5">
 
-![Metrics](../Captura%20de%20pantalla%202024-04-26%20a%20las%2016.08.02.png)
+## Metrics
+<img width="1439" alt="Captura de pantalla 2024-04-26 a las 16 07 53" src="https://github.com/belenjn/metrics-app/assets/75947904/82520e70-27dc-48b2-a228-5ed9152c8953">
+
+
