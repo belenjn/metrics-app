@@ -11,13 +11,26 @@ const databaseService = () => {
   });
 
   const table = "metrics";
+  const logTable = "metric_insert_log";
 
-  const createMetric = ({ name, value, timestamp }) => {
-    return knex(table).insert({
-      name: name,
-      value: value,
-      timestamp: timestamp,
-    });
+  const createMetric = async ({ name, value, timestamp }) => {
+    try {
+      const [metricId] = await knex(table).insert({
+        name: name,
+        value: value,
+        timestamp: timestamp,
+      });
+
+      await knex(logTable).insert({
+        metric_id: metricId,
+        name: name,
+        value: value,
+        timestamp: timestamp,
+      });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   };
 
   const getAllMetrics = () => {
@@ -25,13 +38,28 @@ const databaseService = () => {
   };
 
   const getMetricById = (id) => {
-    return knex(table).where({ id: id }).first();
+    return knex(table).where({ id }).first();
+  };
+
+  const getRecentInsertions = async (lastCheckTimestamp) => {
+    try {
+      const recentInsertions = await knex(logTable)
+        .select()
+        .where("timestamp", ">", lastCheckTimestamp)
+        .first();
+
+      return recentInsertions;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   };
 
   return {
     createMetric,
     getAllMetrics,
     getMetricById,
+    getRecentInsertions,
   };
 };
 
