@@ -71,7 +71,7 @@ input[type=number] {
   cursor: pointer;
   font-size: medium;
   padding: 8px;
-  width: 300px;
+  width: 250px;
 }
 
 .submit-button:hover {
