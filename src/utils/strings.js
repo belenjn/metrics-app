@@ -15,4 +15,11 @@ export const strings = {
   footer: {
     name: "Belén Jaraba Navas © 2024",
   },
+  toasts: {
+    success: "Metric created successfully!",
+  },
+  errors: {
+    getMetrics: "Error fetching metrics",
+    publishMetric: "Error publishing metric",
+  },
 };

@@ -5,7 +5,7 @@ const fetchMetrics = async () => {
     const data = await getMetrics();
     return data;
   } catch (error) {
-    console.error("Error fetching metrics data:", error);
+    console.error(error);
   }
 };
 

@@ -9,7 +9,7 @@ module.exports = function (app, databaseService) {
       res.json(metrics);
     } catch (error) {
       res.status(500).json({ error: "Error reading metrics" });
-      console.error("Error reading metrics", error);
+      console.error(error);
     }
   });
 
@@ -20,7 +20,7 @@ module.exports = function (app, databaseService) {
       if (metric) {
         res.json(metric);
       } else {
-        res.status(404).json({ message: "Metric not found" });
+        res.status(404).json({ message: "404" });
       }
     } catch (error) {
       res.status(500).json(error);
@@ -29,10 +29,9 @@ module.exports = function (app, databaseService) {
 
   app.post("/metrics", async (req, res) => {
     const newMetric = req.body;
-    console.log(newMetric);
     try {
       await databaseService.createMetric(newMetric);
-      res.json({ message: "New metric created" });
+      res.json({ message: newMetric });
     } catch (error) {
       res.status(500).json(error);
     }

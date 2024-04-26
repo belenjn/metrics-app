@@ -1,4 +1,5 @@
 import { API_URL } from "../env";
+import { strings } from "./strings";
 
 const publishMetric = async (metric) => {
   const response = await fetch(API_URL, {
@@ -11,10 +12,8 @@ const publishMetric = async (metric) => {
 
   const responseData = await response.json();
 
-  if (response.ok) {
-    console.log("New metric created", responseData);
-  } else {
-    console.error("Error publishing metric", responseData);
+  if (!response.ok) {
+    console.error(strings.errors.publishMetric, responseData);
   }
 };
 

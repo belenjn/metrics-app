@@ -1,4 +1,5 @@
 import { API_URL } from "../env";
+import { strings } from "./strings";
 
 const getMetrics = async () => {
   try {
@@ -14,11 +15,10 @@ const getMetrics = async () => {
     if (response.ok) {
       return responseData;
     } else {
-      console.error("Error fetching metrics:", responseData);
-      throw new Error("Error fetching metrics");
+      throw new Error(strings.errors.getMetrics);
     }
   } catch (error) {
-    console.error("Error durante la solicitud de datos:", error);
+    console.error(error);
     throw error;
   }
 };

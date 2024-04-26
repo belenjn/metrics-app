@@ -22,7 +22,7 @@ const MetricForm = () => {
     try {
       await publishMetric(metric);
 
-      toast.success("Metric created successfully!");
+      toast.success(strings.toasts.success);
 
       setName("");
       setValue("");
