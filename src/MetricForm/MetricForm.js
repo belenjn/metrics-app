@@ -72,10 +72,8 @@ const MetricForm = () => {
         className="animate__animated animate__fadeInDown message-container"
         onClick={() => scrollToHeight(0.9)}
       >
-        <p>
-          {strings.formPage.metricsButton}
-          <p>&#8595;</p>
-        </p>
+        <p>{strings.formPage.metricsButton}</p>
+        <p>&#8595;</p>
       </button>
     </div>
   );
