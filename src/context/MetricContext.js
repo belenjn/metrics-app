@@ -1,31 +1,24 @@
-import React, { createContext, useEffect, useState } from "react";
-import getMetrics from "../utils/getMetrics";
+import React, { createContext, useState, useEffect } from "react";
+import fetchMetrics from "../utils/fetchMetrics";
 
 const MetricContext = createContext();
 
 const MetricProvider = ({ children }) => {
   const [metrics, setMetrics] = useState([]);
 
-  const fetchMetrics = async () => {
-    try {
-      const data = await getMetrics();
+  useEffect(() => {
+    const loadMetrics = async () => {
+      const data = await fetchMetrics();
       if (data.length > 0) {
         setMetrics(data);
       }
-    } catch (error) {
-      console.error("Error fetching metrics data:", error);
-    }
-  };
+    };
 
-  useEffect(() => {
-    fetchMetrics();
-
-    const intervalId = setInterval(fetchMetrics, 60000);
-
-    return () => clearInterval(intervalId);
+    loadMetrics();
   }, []);
+
   return (
-    <MetricContext.Provider value={{ metrics, fetchMetrics }}>
+    <MetricContext.Provider value={{ metrics, setMetrics }}>
       {children}
     </MetricContext.Provider>
   );
