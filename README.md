@@ -58,7 +58,8 @@ To set up the project locally, follow these steps:
 4. Set up the MySQL database:
 
    - Create a new MySQL database and a user.
-   - Update the database connection settings in a `.env` file (example provided in the repository).
+   - In the provided .env.example file, enter your database connection settings (e.g., database name, host, user, password).
+     -Save the file as .env in the root directory of the backend.
 
 5. Start the application:
 
@@ -78,9 +79,9 @@ The application should now be running on `http://localhost:3000`.
 The application features an intuitive user interface for managing and visualizing metrics. Here is a screenshot of the main dashboard:
 
 ## Form
+
 <img width="1439" alt="Captura de pantalla 2024-04-26 a las 16 08 02" src="https://github.com/belenjn/metrics-app/assets/75947904/8c137074-07bf-468a-8903-6718ad8b32a5">
 
 ## Metrics
+
 <img width="1439" alt="Captura de pantalla 2024-04-26 a las 16 07 53" src="https://github.com/belenjn/metrics-app/assets/75947904/82520e70-27dc-48b2-a228-5ed9152c8953">
-
-
