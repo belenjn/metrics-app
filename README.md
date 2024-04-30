@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# 📊 Metrics Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Metrics Application project! This application allows you to post and visualize metrics in a user-friendly way. Each metric includes a timestamp, name, and value. Metrics are displayed on a timeline and can show averages per minute, hour, and day, while being persisted in the database.
 
-## Available Scripts
+## 🛠️ Technologies
 
-In the project directory, you can run:
+The application uses the following technologies:
 
-### `npm start`
+- **Frontend**:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  - React for the user interface.
+  - D3.js for data visualization.
+  - React Toastify for notifications.
+  - Web Vitals for performance monitoring.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Backend**:
 
-### `npm test`
+  - Express.js for the server.
+  - Body-parser and CORS for request handling.
+  - Knex and MySQL for database interaction.
+  - Moment.js for time formatting and manipulation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - **Communication**:
+  - WebSocket for real-time data transmission.
 
-### `npm run build`
+## 📡 WebSocket
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The project uses WebSocket to enable real-time communication between the server and clients. The benefits of using WebSocket include:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Real-time updates**: Allows instant data transmission between the server and clients.
+- **Persistent connection**: Establishes a constant connection, avoiding the need for repeated HTTP requests.
+- **Efficiency**: Reduces overhead associated with traditional HTTP requests.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+By using WebSocket, the project can offer real-time updates of metrics, providing a more dynamic and responsive user experience.
 
-### `npm run eject`
+## 🛠️ Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To set up the project locally, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/belenjn/metrics-app.git
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Change to the project directory:
 
-## Learn More
+   ```bash
+   cd metrics-app
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Install dependencies:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm install
+   ```
 
-### Code Splitting
+4. Set up the MySQL database:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   - Create a new MySQL database and a user.
+   - In the provided .env.example file, enter your database connection settings (e.g., database name, host, user, password).
+   - Save the file as .env in the root directory of the backend.
 
-### Analyzing the Bundle Size
+5. Start the application:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm start
+   ```
 
-### Making a Progressive Web App
+The application should now be running on `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📜 Scripts
 
-### Advanced Configuration
+- `npm start`: Start the development server.
+- `npm build`: Build the application for production.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# 🖼️ User Interface
 
-### Deployment
+The application features an intuitive user interface for managing and visualizing metrics. Here is a screenshot of the main dashboard:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Form
 
-### `npm run build` fails to minify
+<img width="1439" alt="Captura de pantalla 2024-04-26 a las 16 08 02" src="https://github.com/belenjn/metrics-app/assets/75947904/8c137074-07bf-468a-8903-6718ad8b32a5">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Metrics
+
+<img width="1439" alt="Captura de pantalla 2024-04-26 a las 16 07 53" src="https://github.com/belenjn/metrics-app/assets/75947904/82520e70-27dc-48b2-a228-5ed9152c8953">

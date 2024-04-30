@@ -1,0 +1,16 @@
+.footer-container {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 50px;
+    padding: 10px;
+    height: 100px;
+    width: 100%;
+}
+
+.footer-container h5 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 15px;
+}
