@@ -39,10 +39,7 @@ async function checkForNewInsertions() {
   try {
     const insertions = await dbService.getRecentInsertions(lastCheckTimestamp);
 
-    if (insertions.length > 0) {
-      notifyClients(insertions);
-    }
-
+    notifyClients(insertions);
     lastCheckTimestamp = Date.now();
   } catch (error) {
     console.error(error);
