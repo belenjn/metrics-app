@@ -59,7 +59,7 @@ To set up the project locally, follow these steps:
 
    - Create a new MySQL database and a user.
    - In the provided .env.example file, enter your database connection settings (e.g., database name, host, user, password).
-     -Save the file as .env in the root directory of the backend.
+   - Save the file as .env in the root directory of the backend.
 
 5. Start the application:
 
